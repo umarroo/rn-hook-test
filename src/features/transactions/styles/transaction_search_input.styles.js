@@ -3,7 +3,7 @@
 import {StyleSheet} from 'react-native';
 
 import {COLORS} from '../../../utils/colors';
-import {rw, rbr} from '../../../utils/responsive';
+import {rw, rbr, rh} from '../../../utils/responsive';
 
 export const styles = StyleSheet.create({
   container: {
@@ -35,8 +35,9 @@ export const styles = StyleSheet.create({
   modalView: {
     margin: 20,
     backgroundColor: "white",
-    borderRadius: 5,
-    padding: 35,
+    borderRadius: rbr(5),
+    paddingVertical: 20,
+    paddingHorizontal: 80,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -49,7 +50,7 @@ export const styles = StyleSheet.create({
   },
   openButton: {
     backgroundColor: "#F194FF",
-    borderRadius: 20,
+    borderRadius: rbr(20),
     padding: 10,
     elevation: 2
   },
@@ -61,5 +62,28 @@ export const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center"
+  },
+  buttonContainer: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		marginBottom: 30,
+	},
+	circle: {
+		height: rh(20),
+		width: rw(20),
+		borderRadius: rbr(50),
+		borderWidth: 2,
+		borderColor: COLORS.ORANGE_FLIP,
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	checkedCircle: {
+		width: rw(14),
+		height: rh(14),
+		borderRadius: rbr(50),
+		backgroundColor: COLORS.ORANGE_FLIP,
+  },
+  text: {
+    paddingLeft: rw(5)
   }
 });

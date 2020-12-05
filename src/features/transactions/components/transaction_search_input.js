@@ -17,7 +17,7 @@ export const SearchInput = ({onChangeText}) => {
         placeholderTextColor={COLORS.LIGHT_GRAY}
         onChangeText={onChangeText}
       />
-      <SortButton />
+      <SortButton/>
     </View>
   );
 };

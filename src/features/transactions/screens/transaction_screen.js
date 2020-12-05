@@ -9,10 +9,13 @@ import {SearchInput} from '../components/transaction_search_input';
 import {ItemList} from '../components/transaction_list';
 import {COLORS} from '../../../utils/colors';
 
+import {useStateValue} from '../../../utils/context';
+
 export default () => {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [data, setData] = useState([]);
+  const [{sortBy}] = useStateValue();
 
   const filteringData = () => {
     if (!search) {
