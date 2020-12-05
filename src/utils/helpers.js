@@ -37,13 +37,11 @@ const convertObjectToArray = obj => {
   });
 };
 
-const sortData = (inputArr, order) => {
+const sortName = (inputArr, order) => {
   let len = inputArr.length;
-
   for (let i = 0; i < len; i++) {
       for (let j = 0; j < len-1; j++) {
           if (inputArr[j].beneficiary_name > inputArr[j + 1].beneficiary_name) {
-            // console.log(inputArr[j].beneficiary_name, " ", inputArr[j + 1].beneficiary_name);
             let tmp = inputArr[j];
             inputArr[j] = inputArr[j + 1];
             inputArr[j + 1] = tmp;
@@ -55,7 +53,24 @@ const sortData = (inputArr, order) => {
   }else{
     return inputArr;
   }
-  
 };
 
-export {toUpperCase, formatNumber, formatDate, convertObjectToArray, sortData};
+const sortTime = (inputArr, order) => {
+  let len = inputArr.length;
+  for (let i = 0; i < len; i++) {
+      for (let j = 0; j < len-1; j++) {
+          if (inputArr[j].created_at < inputArr[j + 1].created_at) {
+            let tmp = inputArr[j];
+            inputArr[j] = inputArr[j + 1];
+            inputArr[j + 1] = tmp;
+          }
+      }
+  }
+  if (order == 'latest'){
+    return inputArr.reverse();
+  }else{
+    return inputArr;
+  }
+};
+
+export {toUpperCase, formatNumber, formatDate, convertObjectToArray, sortName, sortTime};

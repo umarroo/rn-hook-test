@@ -3,7 +3,7 @@ import {ScrollView, Alert, ActivityIndicator, View, Text} from 'react-native';
 
 import client from '../../../utils/service';
 import {GET_TRANSACTION_LIST} from '../../../utils/transApi';
-import {convertObjectToArray, toUpperCase, sortData} from '../../../utils/helpers';
+import {convertObjectToArray, toUpperCase, sortName, sortTime} from '../../../utils/helpers';
 import {styles} from '../styles/transaction_screen.styles';
 import {SearchInput} from '../components/transaction_search_input';
 import {ItemList} from '../components/transaction_list';
@@ -62,11 +62,14 @@ export default () => {
   const sortList = (sort_by) => {
     // console.log("click", sort_by);
     if (sort_by == 'aToZ'){
-      setData([...sortData(data)]); // https://stackoverflow.com/a/56266640, 
+      setData([...sortName(data)]); // https://stackoverflow.com/a/56266640, 
     }else if(sort_by == 'zToA'){
-      setData([...sortData(data, 'descend')]);
+      setData([...sortName(data, 'descend')]);
+    }else if(sort_by == 'recent'){
+      setData([...sortTime(data)]);
+    }else if(sort_by == 'oldest'){
+      setData([...sortTime(data, 'latest')]);
     }
-
   }
 
   const List = () => {

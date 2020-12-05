@@ -28,15 +28,15 @@ export const ItemList = props => {
     beneficiary_bank,
     beneficiary_name,
     amount,
-    completed_at,
+    created_at,
     status,
   } = props.item;
   const sender = toUpperCase(sender_bank);
   const receiver = toUpperCase(beneficiary_bank);
   const name = toUpperCase(beneficiary_name);
   const amount_transfer = `Rp${formatNumber(amount)}`;
-  const completed_at_date = completed_at.substr(0, 10);
-  const date_send = formatDate(completed_at_date);
+  const created_at_date = created_at.substr(0, 10);
+  const date_send = formatDate(created_at_date);
   const color = PRIMARY_COLOR[status];
   const text_status = TEXT_STATUS[status];
   return (
