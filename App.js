@@ -6,7 +6,7 @@ import {StateProvider} from './src/utils/context';
 
 const App = () => {
   // first create initialState  obj.
-  const initialState = {sortBy: ''};
+  const initialState = {sortBy: 'aToZ'};
 
   // added reducer 
   const reducer = (state, action) => {

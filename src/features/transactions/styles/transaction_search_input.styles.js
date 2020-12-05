@@ -19,7 +19,6 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   sortContainer: {
-    paddingLeft: rw(15),
     alignItems: "center",
     flexDirection: "row",
   },

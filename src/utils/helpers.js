@@ -37,4 +37,25 @@ const convertObjectToArray = obj => {
   });
 };
 
-export {toUpperCase, formatNumber, formatDate, convertObjectToArray};
+const sortData = (inputArr, order) => {
+  let len = inputArr.length;
+
+  for (let i = 0; i < len; i++) {
+      for (let j = 0; j < len-1; j++) {
+          if (inputArr[j].beneficiary_name > inputArr[j + 1].beneficiary_name) {
+            // console.log(inputArr[j].beneficiary_name, " ", inputArr[j + 1].beneficiary_name);
+            let tmp = inputArr[j];
+            inputArr[j] = inputArr[j + 1];
+            inputArr[j + 1] = tmp;
+          }
+      }
+  }
+  if (order == 'descend'){
+    return inputArr.reverse();
+  }else{
+    return inputArr;
+  }
+  
+};
+
+export {toUpperCase, formatNumber, formatDate, convertObjectToArray, sortData};
