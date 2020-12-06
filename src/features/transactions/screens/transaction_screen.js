@@ -59,8 +59,8 @@ export default ({ navigation }) => {
     sortList(sortBy.sortBy);
   }, [sortBy])
 
+  // highlight: sort functionality. Check helper.js for detail
   const sortList = (sort_by) => {
-    // console.log("click", sort_by);
     if (sort_by == 'aToZ'){
       setData([...sortName(data)]); // https://stackoverflow.com/a/56266640, 
     }else if(sort_by == 'zToA'){

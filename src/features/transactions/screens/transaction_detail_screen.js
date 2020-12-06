@@ -6,6 +6,7 @@ import {styles} from '../styles/transaction_detail_screen.styles';
 import {COLORS} from '../../../utils/colors';
 import {ASSET_ICONS} from '../../../utils/icons';
 
+// highlight: transaction detail screen with complete data transaction detail
 export default ({route, navigation}) => {
   const { id,
     beneficiary_bank,

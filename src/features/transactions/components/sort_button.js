@@ -6,6 +6,7 @@ import {ASSET_ICONS} from '../../../utils/icons';
 
 import {useStateValue} from '../../../utils/context';
 
+// highlight: sort component. check transaction_screen on sortList() function 
 const options = [
 	{
 		key: 'aToZ',
@@ -28,7 +29,6 @@ const options = [
 
 export const SortButton = ({}) => {
   const [modalVisible, setModalVisible] = useState(false);
-  // const [value, setValue] = useState(null);
   const [{sortBy}, dispatch] = useStateValue();
   const onSortChanged = (key) => {
     dispatch({

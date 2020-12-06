@@ -6,6 +6,7 @@ import {SortButton} from '../components/sort_button';
 import {ASSET_ICONS} from '../../../utils/icons';
 import {COLORS} from '../../../utils/colors';
 
+// highlight: can search by name, bank, and amount 
 export const SearchInput = ({onChangeText}) => {
   return (
     <View style={styles.container}>
