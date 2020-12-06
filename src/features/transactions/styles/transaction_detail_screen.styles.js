@@ -12,8 +12,11 @@ export const styles = StyleSheet.create({
   },
   row: {
     backgroundColor: COLORS.WHITE,
-    margin: rw(5),
-    alignItems: 'stretch'
+    padding: rw(20),
+    marginBottom: rh(2),
+    alignItems: 'stretch',
+    justifyContent: 'space-between',
+    flexDirection: 'row'
   },
   copy_icon: {width: rw(15), height: rw(15), tintColor: COLORS.ORANGE_FLIP},
   detailContainer: {
