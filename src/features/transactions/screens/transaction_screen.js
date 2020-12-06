@@ -3,7 +3,7 @@ import {ScrollView, Alert, ActivityIndicator, View, Text, TouchableHighlight} fr
 
 import client from '../../../utils/service';
 import {GET_TRANSACTION_LIST} from '../../../utils/transApi';
-import {convertObjectToArray, toUpperCase, sortName, sortTime} from '../../../utils/helpers';
+import {convertObjectToArray, toUpperCase, sortName, sortTime, removeSpecialChar} from '../../../utils/helpers';
 import {styles} from '../styles/transaction_screen.styles';
 import {SearchInput} from '../components/transaction_search_input';
 import {ItemList} from '../components/transaction_list';
@@ -23,9 +23,9 @@ export default ({ navigation }) => {
     }
 
     return data.filter(item => {
-      const toSearch = toUpperCase(search);
+      const toSearch = toUpperCase(removeSpecialChar(search));
       const searchIn = [toUpperCase(item.beneficiary_name), toUpperCase(item.sender_bank), toUpperCase(item.beneficiary_bank), `"${item.amount}"`]
-      const find_name = searchIn[0].match(toSearch); // TODO: crash. regex special character conflict e.g '?'
+      const find_name = searchIn[0].match(toSearch);
       const find_sender_bank = searchIn[1].match(toSearch);
       const find_beneficiary_bank = searchIn[2].match(toSearch);
       const find_amount = searchIn[3].match(toSearch);

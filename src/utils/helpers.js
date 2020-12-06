@@ -2,6 +2,16 @@ const toUpperCase = val => {
   return val.toUpperCase();
 };
 
+const removeSpecialChar = val => {
+  out = '';
+  for (i = 0; i < val.length; i++){
+    if (val[i] != '?' && val[i] != '(' && val[i] != ')' && val[i] != '[' && val[i] != ']' && val[i] != "\\" && val[i] != "+"){
+      out += val[i];
+    }
+  }
+  return out;
+}
+
 const formatNumber = num => {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
 };
@@ -73,4 +83,4 @@ const sortTime = (inputArr, order) => {
   }
 };
 
-export {toUpperCase, formatNumber, formatDate, convertObjectToArray, sortName, sortTime};
+export {toUpperCase, formatNumber, formatDate, convertObjectToArray, sortName, sortTime, removeSpecialChar};

@@ -16,6 +16,8 @@ export const SearchInput = ({onChangeText}) => {
         placeholder="Cari nama, bank, atau nominal"
         placeholderTextColor={COLORS.LIGHT_GRAY}
         onChangeText={onChangeText}
+        maxLength={20}
+        keyboardType='ascii-capable'
       />
       <SortButton/>
     </View>
