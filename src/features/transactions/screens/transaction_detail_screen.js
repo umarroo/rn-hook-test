@@ -1,8 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import { Alert, View, Text} from 'react-native';
+import React from 'react';
+import { Alert, View, Text, Image} from 'react-native';
 
+import {toUpperCase, formatDate, formatNumber} from '../../../utils/helpers';
 import {styles} from '../styles/transaction_detail_screen.styles';
 import {COLORS} from '../../../utils/colors';
+import {ASSET_ICONS} from '../../../utils/icons';
 
 export default ({route, navigation}) => {
   const { id,
@@ -17,19 +19,49 @@ export default ({route, navigation}) => {
   return (
     <>
     <View style={styles.container}>
-      <View style={styles.row}>
-        <Text>ID TRANSAKSI: #{id}</Text>
+      <Text style={[styles.text_bold, {paddingRight: 5}]}>ID TRANSAKSI: #{id}</Text>
+      <Image style={styles.copy_icon} source={ASSET_ICONS.ICON_COPY} />
+    </View>
+    <View style={styles.container}>
+      <Text style={styles.text_bold}>DETAIL TRANSAKSI</Text>
+      <Text >Tutup</Text>
+    </View>
+    <View style={{backgroundColor: COLORS.WHITE}}>
+    <View style={styles.log_bank}>
+        <Text style={styles.text_bold}>{toUpperCase(sender_bank)}</Text>
+        <Image
+          style={styles.icon_arrow}
+          source={ASSET_ICONS.ICON_RIGHT_ARROW}
+        />
+        <Text style={styles.text_bold}>{toUpperCase(beneficiary_bank)}</Text>
+    </View>
+    <View style={styles.detailContainer}>
+      <View>
+        <Text style={styles.text_bold}>{toUpperCase(beneficiary_name)}</Text>
+        <Text>{account_number}</Text>
+      </View>
+      <View style={styles.log_bank_detail}>
+        <Text style={styles.text_bold}>NOMINAL</Text>
+        <Text>{`Rp${formatNumber(amount)}`}</Text>
       </View>
     </View>
     <View style={styles.detailContainer}>
-      <Text>{beneficiary_name}</Text>
-      <Text>{account_number}</Text>
+      <View>
+        <Text style={styles.text_bold}>BERITA TRANSFER</Text>
+        <Text>Coba mbanking yey</Text>
+      </View>
+      <View style={styles.log_bank_detail}>
+        <Text style={styles.text_bold}>KODE UNIK</Text>
+        <Text>{unique_code}</Text>
+      </View>
     </View>
-      <Text>{beneficiary_bank}</Text>
-      <Text>{sender_bank}</Text>
-      <Text>{amount}</Text>
-      <Text>{created_at}</Text>
-      <Text>{unique_code}</Text>
+    <View style={styles.detailContainer}>
+      <View style={styles.log_bank_detail}>
+        <Text style={styles.text_bold}>WAKTU DIBUAT</Text>
+        <Text>{formatDate(created_at.substr(0, 10))}</Text>
+      </View>
+    </View>
+    </View>
     </>
   )
 }

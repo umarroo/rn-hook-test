@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     margin: rw(10),
   },
   searchContainer: {
-    padding: rw(10),
+    paddingLeft: rw(10),
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -23,8 +23,8 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
   },
   search_icon: {width: rw(20), height: rw(20), tintColor: COLORS.LIGHT_GRAY},
-  sort_icon: {width: rw(30), height: rw(30),  tintColor: COLORS.ORANGE_FLIP},
-  sort_text: {fontWeight: 'bold', color: COLORS.ORANGE_FLIP},
+  sort_icon: {width: rw(30), height: rw(30), tintColor: COLORS.ORANGE_FLIP},
+  sort_text: {fontWeight: 'bold', color: COLORS.ORANGE_FLIP, paddingLeft: rw(10)},
   centeredView: {
     flex: 1,
     justifyContent: "center",
