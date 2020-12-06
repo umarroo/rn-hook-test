@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ScrollView, Alert, ActivityIndicator, View, Text} from 'react-native';
+import {ScrollView, Alert, ActivityIndicator, View, Text, TouchableHighlight} from 'react-native';
 
 import client from '../../../utils/service';
 import {GET_TRANSACTION_LIST} from '../../../utils/transApi';
@@ -11,7 +11,7 @@ import {COLORS} from '../../../utils/colors';
 
 import {useStateValue} from '../../../utils/context';
 
-export default () => {
+export default ({ navigation }) => {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [data, setData] = useState([]);
@@ -84,7 +84,26 @@ export default () => {
       return <Text>Not found</Text>;
     }
     return data_list.map((item, i) => {
-      return <ItemList key={i} item={item} />;
+      return (
+        <TouchableHighlight 
+          underlayColor={ 'transparent' }
+          key={i}
+          onPress={() => 
+            navigation.navigate('Details', {
+              id: item.id,
+              beneficiary_bank: item.beneficiary_bank,
+              beneficiary_name: item.beneficiary_name,
+              sender_bank: item.sender_bank,
+              amount: item.amount,
+              created_at: item.created_at,
+              unique_code: item.unique_code,
+              account_number: item.account_number
+            })
+          }
+        >
+          <ItemList key={i} item={item} />
+        </TouchableHighlight>
+      );
     });
   };
 

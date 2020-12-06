@@ -1,7 +1,11 @@
 import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 
-import Transaction from './src/features/transactions/screens/transaction_screen';
+// navigation
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import {Transaction, Details} from './src/features/transactions/screens/index';
 import {StateProvider} from './src/utils/context';
 
 const App = () => {
@@ -16,20 +20,27 @@ const App = () => {
           ...state,
           sortBy: action.sortingBy,
         };
-      // other case
       default:
         return state;
     }
   };
+
+  const Stack = createStackNavigator();
+
   return (
     // added Provider
     // given initialState and reducer in stateProvider.
-    <StateProvider initialState={initialState} reducer={reducer}>
-        <StatusBar barStyle="light-content" />
-        <SafeAreaView style={{flex: 1}}>
-          <Transaction />
-        </SafeAreaView>
-    </StateProvider>
+    <NavigationContainer>
+      <StateProvider initialState={initialState} reducer={reducer}>
+            <StatusBar barStyle="light-content" />
+            <SafeAreaView style={{flex: 1}}>
+              <Stack.Navigator initialRouteName="Transaction" >
+                <Stack.Screen name="Transaction" component={Transaction} options={{headerShown: false}}/>
+                <Stack.Screen name="Details" component={Details} />
+              </Stack.Navigator>
+            </SafeAreaView>
+      </StateProvider>
+    </NavigationContainer>
   );
 };
 
