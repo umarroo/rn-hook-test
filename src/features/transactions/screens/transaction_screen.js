@@ -42,7 +42,7 @@ export default ({ navigation }) => {
       if (response?.status === 200) {
         const data_transaction = response?.data;
         const array_list = convertObjectToArray(data_transaction);
-        setData(array_list);
+        setData(array_list.slice(0, 10));
         setLoading(false);
       }
     } catch (error) {

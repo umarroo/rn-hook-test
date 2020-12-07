@@ -49,7 +49,6 @@ export const SortButton = ({}) => {
       <Text style={styles.sort_text}>URUTKAN</Text>
       <Image style={styles.sort_icon} source={ASSET_ICONS.ICON_DOWN_ARROW} />
     </TouchableOpacity>
-    {/* <View style={styles.centeredView}> */}
       <Modal
         animationType="none"
         transparent={true}
@@ -66,7 +65,6 @@ export const SortButton = ({}) => {
                     style={styles.buttonContainer}
                     onPress={() => {
                       onSortChanged(item.key);
-                      // setValue(item.key);
                     }}
                     >
 					        	<View
@@ -82,7 +80,6 @@ export const SortButton = ({}) => {
           </View>
         </View>
       </Modal>
-    {/* </View> */}
     </>
   )
 }
