@@ -1,5 +1,5 @@
 const CONFIG_SERVICE = {
-  BASE_API_URL: 'https://nextar.flip.id/',
+  BASE_API_URL: 'https://recruitment-test.flip.id/',
   TIME_OUT: 50000,
 };
 
